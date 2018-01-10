@@ -15,7 +15,7 @@
     "gulp-newy": "^2.0.4",
     "gulp-rename": "^1.2.2",
     "imagemin-jpegoptim": "^5.0.0",
-    "node-iptc": "git+ssh://git@github.com:angusmci/node-iptc.git#angusmci/hotfix/length-2-fields"
+    "node-iptc": "^1.0.5"
   },
   "devDependencies": {
     "exif-parser": "^0.1.9",
