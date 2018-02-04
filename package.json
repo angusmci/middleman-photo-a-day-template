@@ -1,6 +1,6 @@
 {
-  "name": "photo-a-day",
-  "version": "0.7",
+  "name": "middleman-photo-a-day",
+  "version": "0.7.0",
   "description": "Build tools for Middleman photo-a-day template.",
   "main": "index.js",
   "scripts": {
