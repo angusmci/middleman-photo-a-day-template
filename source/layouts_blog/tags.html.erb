@@ -1,0 +1,13 @@
+<% wrap_layout :layout do %>
+<h1>Tags</h1>
+<section class="text">
+<p>Images on this site have been tagged with the following keywords:</p>
+<ul class="tagmap">
+	<% blog.tags.sort_by{|tag,articles| tag.downcase}.each do |tag, articles| %>
+		<li><%= link_to tag, tag_path(tag) %> [<%= articles.size %>]</a></li>
+	<% end %>
+</ul>
+</section>
+<% end %>
+
+
