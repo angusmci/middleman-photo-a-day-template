@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<%
+	if current_article.nil?
+		pagetagname = current_page.metadata[:locals]["tagname"]
+		pagecalendartype = current_page.metadata[:locals]["page_type"]
+		if pagetagname.nil?
+			if pagecalendartype == "month"
+				pageyear = current_page.metadata[:locals]["year"]
+				pagemonth = current_page.metadata[:locals]["month"]
+				pagedate = Date.new(pageyear,pagemonth,1)
+				pagemonthname = pagedate.strftime("%B")
+				pagetitle = pagemonthname + " | " + config[:sitename]
+				pagedescription = "Photographs taken in " + pagemonthname + " " + pageyear.to_s
+				pagekeywords = pagemonthname + "," + config[:siteyear] + ",photos,photography,photographs,images"
+				pagerobots = "follow"
+			else
+				pagetitle = current_page.data.title
+				pagedescription = current_page.data.description
+				pagekeywords = current_page.data.keywords
+				pagerobots = current_page.data.robots
+			end
+		else
+			pagetitle = "Photos tagged " + pagetagname + " | " + config[:sitename]
+			pagedescription = "An index of all photos tagged with the keyword '" + pagetagname + "' at " + config[:sitename]
+			pagekeywords = pagetagname + ",photos,photography,pictures,images"
+			pagerobots = "follow"
+		end
+	else
+		pagetitle = current_article.data.title + " | " + config[:sitename]
+		pagekeywords = current_page.data.keywords
+		pagerobots = "index"
+	end
+	
+	pagetype = get_page_type()
+	pagerobots = get_page_robots()
+	pagetitle = get_page_title()
+	pagekeywords = get_page_keywords()
+	pagedescription = get_page_description()
+	pagemeta = get_page_meta()
+	
+%>
+		<title><%= pagetitle %></title>
+		<%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "#{config[:sitename]}" %>
+		<link rel="alternate" type="application/json" title="<%= config[:sitename] %>" href="<%= blog.options.prefix.to_s %>/feed.json" />
+        <meta name="description" content="<%= pagedescription %>" />
+        <meta name="keywords" http-equiv="keywords" content="<%= pagekeywords %>" />
+        <meta name="robots" content="<%= pagerobots %>" />
+		<meta name="author" content="<%= config[:siteauthorname] %>, <%= config[:siteauthorurl] %>" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png" />  
+		<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png" />  
+		<link rel="apple-touch-icon" sizes="167x167" href="/icons/apple-touch-icon-167x167.png" />  
+		<link rel="icon" href="/icons/favicon-16.png" sizes="16x16" type="image/png" />  
+		<link rel="icon" href="/icons/favicon-32.png" sizes="32x32" type="image/png" />  
+		<link rel="icon" href="/icons/favicon-48.png" sizes="48x48" type="image/png" />  
+		<link rel="icon" href="/icons/favicon-62.png" sizes="62x62" type="image/png" />  
+		<link rel="icon" href="/icons/favicon-96.png" sizes="96x96" type="image/png" />  
+		<link rel="icon" href="/icons/favicon-144.png" sizes="144x144" type="image/png" />  
+		<meta name="msapplication-TileColor" content="#000000" />
+		<meta name="msapplication-TileImage" content="/icons/favicon-144.png" />
+		<meta name="application-name" content="<%= config[:sitename] %>" />
+		<meta name="msapplication-tooltip" content="<%= config[:siteslug] %>" />
+		<meta name="msapplication-config" content="/ieconfig.xml" />
+		<link href="https://fonts.googleapis.com/css?family=Muli:400,400i|Spectral:400" rel="stylesheet">
+		<link rel="stylesheet" href="/css/styles.css">
+		<link href="/humans.txt" rel="author" type="text/plain" />
+		<%= pagemeta %>
+    </head>
+	<body>
+	<!--[if lt IE 7]>
+		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/?locale=en">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+    <header>
+    	<section id="banner" class="banner">
+			<div><a href="/" rel="home"><%= config[:siteshortname] %></a></div>
+			<p><%= config[:siteslug] %></p>
+		</section>
+    </header>
