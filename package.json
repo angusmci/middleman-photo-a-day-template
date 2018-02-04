@@ -1,7 +1,7 @@
 {
-  "name": "disoriented.net",
-  "version": "3.2.0",
-  "description": "Build tools for disoriented.net",
+  "name": "Middleman photo-a-day",
+  "version": "0.7",
+  "description": "Build tools for Middleman photo-a-day template.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,7 +14,6 @@
     "gulp-imagemin": "^3.1.1",
     "gulp-newy": "^2.0.4",
     "gulp-rename": "^1.2.2",
-    "imagemin-jpegoptim": "^5.0.0",
     "node-iptc": "^1.0.5"
   },
   "devDependencies": {
@@ -24,6 +23,10 @@
     "gulp-jslint": "^1.0.10",
     "gulp-transform": "^2.0.0",
     "gulp-uglify": "^2.0.1",
-    "pump": "^1.0.2"
+    "imagemin-jpegoptim": "^5.0.0",
+    "imagemin-pngquant": "^5.0.1",
+    "lodash": "^4.17.4",
+    "pump": "^1.0.2",
+    "request": "^2.81.0"
   }
 }
