@@ -2,6 +2,8 @@
 
 ## Overview
 
+THIS PROJECT IS UNDER ACTIVE DEVELOPMENT. IT'S NOT YET READY FOR PRODUCTION USE. IF YOU URGENTLY NEED TO USE IT TODAY, HOWEVER, THERE SHOULD ALREADY BE ENOUGH FOR SOMEONE FAMILIAR WITH MIDDLEMAN TO GET STARTED.
+
 This is a project template for implementing a simple photo-a-day blog site using the [Middleman](http://middlemanapp.com/) static site generator. For more information about project templates, see the 
 [Middleman project template documentation](https://middlemanapp.com/advanced/project-templates/).
 
@@ -13,7 +15,7 @@ Note that the assumption that the site will show exactly one year's worth of pic
 
 ## Installation
 
-... installation notes will go here; in the meantime, refer to the Middleman documentation ...
+... installation notes will go here; in the meantime, refer to the Middleman documentation, and do `npm install` to add the external tools ...
 
 ## Configuration
 
@@ -40,4 +42,4 @@ Once you've done that, you can just launch Middleman as you would normally, i.e.
 	
 and everything should just work.
 
-You'll need to repeat the `resize` and `create-pages` steps each time you add a new photograph. They generally run very quickly, however, so that shouldn't be a problem (and they use the `newy` gulp plugin to avoid doing any unnecessary work).
+You'll need to repeat the `resize` and `create-pages` steps each time you add a new photograph. They generally run very quickly, however, so that shouldn't be a problem (and the gulpfile uses the `newy` gulp plugin to avoid doing any unnecessary work).
