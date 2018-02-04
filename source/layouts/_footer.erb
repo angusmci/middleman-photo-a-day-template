@@ -14,9 +14,12 @@
 						date = Date.new(config[:siteyear].to_i,month,1)
 						monthname = date.strftime("%b")
 						pathname = blog_month_path(config[:siteyear].to_i,month)
-						unless pathname.nil?
+						if pathname.nil?
 					%>
-						<li><a href="<%= pathname %>"><%= monthname %></a></li>
+						<li><%= monthname %></li>
+					<% else %>
+					
+						<li class="active"><a href="<%= pathname %>"><%= monthname %></a></li>
 					<% end %>
 					<% end %>
 				</ul>

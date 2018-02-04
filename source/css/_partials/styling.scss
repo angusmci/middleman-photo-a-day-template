@@ -157,6 +157,36 @@ body {
 			}
 
 		}
+		
+		section.monthlinks {
+			ul {
+				width: 8em;
+				li {
+					border-radius: 0.25em;
+					background-color: $calendar-inactive-background-color;
+					color: gray;
+					margin: 0.25em;
+					height: 1.5em;
+					
+					a {
+						color: white;
+					}
+					a:hover {
+						text-decoration: none;
+					}
+				}
+				li.active {
+					background-color: $calendar-active-background-color;
+				}
+				
+				li.active:hover {
+					background-color: lighten($calendar-active-background-color, 10);
+				}
+				li.active {
+					background-color: darken($calendar-active-background-color, 10);
+				}
+			}
+		}
 	}
 
 }
