@@ -1,0 +1,162 @@
+body {
+	font-family: 'Muli', 'Helvetica', 'Arial', sans-serif;
+	color: $body-text-color;
+
+	header { 
+		border-width: 0 0 1px 0;
+		border-color: $section-rule-color;
+		border-style: solid;
+
+		section.banner {
+			div {
+				font-family: Spectral, Georgia, "Times", serif;
+				color: $banner-text-color;
+				
+				a {
+					color: $banner-text-color;
+					text-decoration: none;
+				}
+				
+				a:hover {
+					color: lighten($banner-text-color,20);
+				}
+			}
+			
+			p {
+				color: $slug-text-color;
+				font-style: italic;
+			}
+		}
+
+	}
+
+	main {
+	
+		> h1 {
+			font-family: Spectral, Georgia, "Times", serif;
+			font-size: 2em;
+		}
+
+		figure {
+			figcaption {
+				h1 { font-weight: bold; }
+				p.caption { }
+				p.location { font-style: italic; }
+			}
+			
+			img {
+				box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.3);
+			}
+		}
+		
+		.btnForward {
+			background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4Ij48ZyBmaWxsPSJub25lIj48cmVjdCB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHJ4PSI4IiBmaWxsPSIjNjY2Ii8+PHBhdGggZD0iTTEzLjcgMjAuNEwyOS44IDkuNyAyOS44IDkuN0MzMS42IDguNCAzNC4xIDguOSAzNS4zIDEwLjggMzUuOCAxMS40IDM2IDEyLjIgMzYgMTNMMzYgMzQuMSAzNiAzNC4xQzM2IDM2LjMgMzQuMiAzOC4xIDMyIDM4LjEgMzEuMiAzOC4xIDMwLjQgMzcuOCAyOS44IDM3LjRMMTMuNyAyNi42IDEzLjcgMjYuNkMxMi42IDI1LjkgMTIgMjQuOCAxMiAyMy41TDEyIDIzLjUgMTIgMjMuNUMxMiAyMi4zIDEyLjYgMjEuMSAxMy43IDIwLjRaIiBmaWxsPSIjRkZGIi8+PC9nPjwvc3ZnPg0K"); 
+		}
+		.btnBack {
+			background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDhweCIgaGVpZ2h0PSI0OHB4IiB2aWV3Qm94PSIwIDAgNDggNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSI+PGc+PHJlY3QgZmlsbD0iIzY2NiIgeD0iMCIgeT0iMCIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iOCI+PC9yZWN0PjxwYXRoIGQ9Ik0xMy43LDIwLjQgTDI5LjgsOS43IEwyOS44LDkuNyBDMzEuNiw4LjQgMzQuMSw4LjkgMzUuMywxMC44IEMzNS44LDExLjQgMzYsMTIuMiAzNiwxMy4wIEwzNiwzNC4wIEwzNiwzNC4wIEMzNiwzNi4zIDM0LjIsMzguMCAzMiwzOC4wIEMzMS4yLDM4LjA1MjI4ODQgMzAuNCwzNy44IDI5LjgsMzcuNCBMMTMuNiwyNi42IEwxMy43LDI2LjYgQzEyLjYsMjUuOSAxMiwyNC44IDEyLDIzLjUgTDEyLDIzLjUgTDEyLDIzLjUgQzEyLDIyLjMgMTIuNiwyMS4xIDEzLjcsMjAuNCBaIiBmaWxsPSIjRkZGIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNC4wLCAyMy41KSBzY2FsZSgtMSwgMSkgdHJhbnNsYXRlKC0yNC4wLCAtMjMuNSkiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg=="); 
+		}
+		
+		aside.tags {
+			background-color: $tagset-background-color;
+			border-radius: 8px;
+			padding: 0.5em 1em;
+			background-image: url('data:image/svg+xml;utf8,<svg width="24px" height="24px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg"><g transform="translate(2.0, 2.0)" stroke="%23FFFFFF" fill="none" stroke-width="2"><path d="M22.04,36.08 L0.04,15.0 L0.65,0.47 L14.52,-0.15 L35.88,21.72 L22.04,36.08 Z"/><circle cx="10.51" cy="10.51" r="3.74"></circle></g></svg>'); 
+			background-repeat: no-repeat;
+			background-position: 0.75em 0.75em;
+			min-height: 2em;
+			
+			li {
+				color: $tagset-text-color;
+				
+				a {
+					color: $tagset-text-color;
+					text-decoration: none;
+				}					
+				
+				a:hover {
+					color: $tagset-text-hover-color;
+					text-decoration: underline;
+				}
+			}
+		}
+		
+		ul.thumbs {
+			li {
+				img {
+					box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.3);
+				}
+			}
+		}
+		
+		aside.licenseinfo,
+		section.text {
+			a { 
+				color: $anchor-color; 
+				text-decoration: underline dotted lighten($anchor-color,40);
+			}
+		
+			a:hover {
+				color: $anchor-hover-color; 
+				text-decoration: underline solid;	
+			}
+		}
+		
+		ul.tagmap {
+			li {
+				a {
+					text-decoration: underline dotted lighten($anchor-color,40);
+					text-transform: lowercase;
+					color: $anchor-color;
+				}
+				
+				a:hover {
+					color: $anchor-hover-color;
+					text-decoration: underline;
+				}
+				
+				a:visited {
+					color: $anchor-visited-color;
+				}
+			}
+		}
+	}
+	
+	footer {
+		border-width: 1px 0 0 0;
+		border-color: $section-rule-color;
+		border-style: solid;
+		
+		a { 
+			color: $anchor-color; 
+			text-decoration: none;	
+		}
+		
+		a:hover {
+			color: $anchor-hover-color; 
+			text-decoration: underline;	
+		}
+		
+		a:visited {
+			color: $anchor-visited-color;
+		}
+				
+		aside.copyright {
+			color: $copyright-text-color;
+			
+			a {
+				text-decoration: none;
+				color: $copyright-text-color;
+			}
+			
+			a:hover {
+				text-decoration: underline;
+			}
+			
+			a:visited {
+				color: $anchor-visited-color;
+			}
+
+		}
+	}
+
+}

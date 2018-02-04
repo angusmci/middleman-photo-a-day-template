@@ -1,0 +1,726 @@
+body {
+	padding: 0;
+	margin: 0;
+	
+	header { 
+		width: 20em;
+		margin: 0 auto 3em auto;
+		padding: 0;
+		position: relative;
+		
+		section.banner {
+			padding-bottom: 1em;
+		
+			div {
+				margin-top: 1em;
+				font-size: 2em;
+				padding: 0 0.5em;
+				line-height: 0.8em;
+				text-align: center;
+			}
+			
+			p {
+				margin: 0;
+				padding: 0 0.25em;
+				font-size: 0.625em;
+				text-align: center;
+				text-transform: lowercase;
+			}			
+		}
+	}
+	
+	main {
+		width: 20em;
+		margin: 0 auto;
+		
+		> h1 {
+			text-align: center;
+			font-size: 1.25em;
+			font-weight: bold;
+		}
+		
+		figure {
+			text-align: center;
+			position: relative;
+			
+			figcaption {
+				width: 18em;
+				margin: 2em auto;
+				h1 {
+					font-size: 1em;
+					padding: 0;
+					margin: 0;
+					line-height: 1.25em;
+				}
+				p {
+					padding: 0.5em 0 0 0;
+					margin: 0;
+					line-height: 1.25em;
+					font-size: 0.8125em;
+				}
+				p.caption { }
+				p.location { }
+			}
+			
+			nav.overlay { 
+				position: absolute; top: 0; left: 0; 
+				
+				div {
+					width: 48px;
+					height: 48px;
+					display: inline;
+					width: 50%;
+					float: left;
+					background-repeat: no-repeat;
+					height: 100%;
+					background-attachment: local;
+					opacity: 0.0;
+				}
+				
+				div.btnForward {
+					background-position: 30% 50%; 
+				}
+				div.btnBack {
+					background-position: 70% 50%; 
+				}
+				
+				div:hover { opacity: 0.75; }
+
+			}
+		}
+		
+		@include photo-sizes(288);
+		
+		nav.photobuttons {
+			margin: 0em auto;
+			width: 16em;
+			display: none;
+			
+			ul {
+				overflow: auto;
+				padding: 0;
+				margin: 0;
+			
+				li { 
+					float: left; 
+					padding: 0;
+					height: 48px;
+					width: 48px;
+					opacity: 0.4;
+					
+					a { 
+					
+						span { 
+							opacity: 0.0;
+						}
+					}
+				}
+				li:hover { opacity: 1.0; }
+				li.btnForward { 
+					float: left;
+				}
+				li.btnBack { 
+					float: right; 
+				}
+			}
+		}
+		
+		aside.tags {
+			overflow: auto;
+			margin: 6em auto 0 auto;
+			width: 16em;
+			
+			h2 { display: none; }
+			
+			ul {
+				list-style: none;
+				margin: 0;
+				padding: 0 0 0 2.5em;
+				
+				
+				li {
+					float: left;
+					font-size: 0.75em;
+					line-height: 1.5em;
+					padding: 0;
+					margin: 0 0.5em 0 0;
+				}
+				
+				li:after { content: ", "; }
+				li:last-child:after { content: ""; }
+			}	
+		}
+		
+		ul.thumbs {
+			overflow: auto;
+			clear: both;
+			padding: 0;
+			margin: 0 auto;
+			width: 20em;
+		
+			li {
+				list-style: none;
+				float: left;
+				text-align: center;
+			
+				img.thumb23 { margin: 8px 32px; }
+				img.thumb34 { margin: 8px 26px; }
+				img.thumb32 { margin: 32px 8px; }
+				img.thumb43 { margin: 26px 8px; }
+				
+				p { 
+					font-weight: bold;
+					margin: 0.5em 0 2em 0;
+					padding: 0;
+				}
+			}
+		}
+		
+		ul.tagmap {
+			overflow: auto;
+			margin: 1em auto;
+			width: 16em;
+			padding: 0;
+			
+			li {
+				float: left;
+				list-style: none;
+				font-size: 0.8125em;
+				padding-right: 1em;
+				line-height: 2em;
+				
+			}
+		}
+		
+		aside.licenseinfo {
+			width: 18em;
+
+			margin: 10em auto 2em auto;
+			text-align: left;
+		
+			div.licensebadge {
+				float: left;
+				margin-right: 0.75em;
+				width: 88px;
+				padding: 0;
+				
+				a { text-decoration: none; margin: 0; padding: 0; }
+				a:hover { text-decoration: none; opacity: 0.8; }
+				
+				picture {
+					padding: 0;
+					
+					img { 
+						margin: 0.375em 0;
+						padding: 0;
+						width: 88px;
+						height: 31px;
+					}
+				}
+				
+			}
+			
+			div p {
+				margin: 0;
+				padding: 0;
+				font-size: 0.75em;
+				line-height: 1.5em;
+			}
+			
+			a { 
+				text-decoration: none;
+			}
+			a:hover {
+				text-decoration: underline;
+			}
+		}
+		
+		section.recentphotos {
+			margin: 6em auto 0 auto;
+		}
+		
+		section.text {
+			margin: 1.25em;
+			
+			h2 {
+				font-size: 1em;
+				margin-top: 2em;
+			}
+			
+			p {
+				line-height: 1.5em;
+				font-size: 0.8125em;
+			}
+		}
+
+	}
+	
+	footer { 
+		width: 20em;
+		margin: 3em auto 1em auto;
+
+		nav {
+			section.sitelinks {
+				margin: 1em auto;
+				width: 14em;
+				text-align: center;
+			
+				ul {
+					overflow: auto;
+					padding: 0;
+				
+					li {
+						font-size: 0.8125em;
+						float: left;
+						text-align: center;
+						width: 4em;
+					}
+				}
+			}
+			
+			section.monthlinks {
+				ul {
+					overflow: auto;
+					padding: 0;
+					width: 15em;
+					margin: 0 auto;
+					
+					li {
+						font-size: 0.8125em;
+						float: left;
+						text-align: center;
+						text-transform: lowercase;
+						width: 3em;
+					}
+				}
+			}
+			
+		}
+		
+		aside.copyright {
+			width: 100%;
+			font-size: 0.8125em;
+			float: left;
+			text-align: center;	
+			margin: 2em auto;		
+		}
+		
+		section.recentphotos {
+			width: 30em;
+		}
+		
+	}
+	
+}
+
+@media only screen 
+	and (max-width: 480px) {
+
+	body main section.recentphotos {
+		width: 20em;
+		
+		ul li:nth-child(n+5) { display: none; }
+	}
+	
+	@supports (display: grid) {
+		body main ul.thumbs {
+        	display: grid;
+        	grid-template-columns: repeat(2, 1fr);
+        	grid-gap: 0;
+		}
+	}
+}
+
+@media only screen 
+	and (min-width: 480px) 
+	and (max-width: 640px) {
+
+	body {
+		@include section-widths(30);
+		
+		header section.banner {
+			div { font-size: 2.5em; }
+			p { font-size: 0.75em; }
+		}
+	
+		main {
+			width: 30em;
+
+			figure {
+			
+				figcaption {
+					margin: 3em auto;
+					width: 24em;
+
+					h1 { font-size: 1.25em; }
+					p { font-size: 0.875em; }
+				}
+			}
+		
+			@include photo-sizes(420);
+			
+			aside.tags {
+				width: 24em;
+			}
+			
+			aside.licenseinfo {
+				width: 26em;
+				
+				div.licensebadge {
+					padding-bottom: 4em;
+					margin-right: 1em;
+				}
+			}
+			
+			section.recentphotos {
+				width: 30em;
+				
+				ul li:nth-child(n+4) { display: none; }
+			}
+			
+			ul.tagmap {
+				width: 26em;
+			}
+			
+			ul.thumbs {
+				width: 30em;
+			}
+			
+			@supports (display: grid) {
+				ul.thumbs {
+        			display: grid;
+        			grid-template-columns: repeat(3, 1fr);
+        			grid-gap: 0;
+				}
+			}
+
+		}
+	
+		footer {
+			width: 30em;
+		}
+	}
+  
+}
+
+@media only screen 
+	and (min-width: 640px) 
+	and (max-width: 800px) {
+
+	body {
+		@include section-widths(40);
+
+		header section.banner {
+			div { font-size: 3em; margin-top: 0.5em; }
+			p { font-size: 0.8125em; }
+		}
+
+		main {
+
+			figure {
+			
+				figcaption {
+					margin: 3.5em auto;
+					width: 32em;
+
+					h1 { font-size: 1.5em; }
+					p { font-size: 1em; }
+				}
+				
+			}
+		
+			@include photo-sizes(576);
+			
+			aside.tags {
+				width: 34em;
+				ul li { font-size: 0.875em; }
+			}
+			
+			aside.licenseinfo {
+				width: 36em;
+				
+				div.licensebadge {
+					padding-bottom: 4em;
+					margin-right: 1em;
+				}
+				
+				div p { font-size: 0.875em; }
+
+			}
+			
+			section.recentphotos {
+				width: 40em;
+				ul li:nth-child(n+5) { display: none; }
+			}
+			
+			ul.tagmap {
+				width: 30em;
+				
+				li { font-size: 1.0em; }
+			}
+			
+			ul.thumbs {
+				width: 40em;
+			}
+			
+			@supports (display: grid) {
+				ul.thumbs {
+        			display: grid;
+        			grid-template-columns: repeat(4, 1fr);
+        			grid-gap: 0.25em;
+				}
+			}
+			
+			section.text {
+				margin: 1.5em auto;
+				width: 32em;
+			
+				h2 {
+					font-size: 1.25em;
+					margin-top: 3em;
+				}
+			
+				p {
+					line-height: 1.5em;
+					font-size: 1em;
+				}
+			}
+
+		}
+		
+		footer nav {
+			section.sitelinks {
+				margin: 3em auto 1.5em auto;
+				width: 16em; 
+				ul li { font-size: 1.0em; width: 4em; }
+			}
+		
+			section.monthlinks {
+				width: 40em;
+				ul {
+					width: 18em;
+					li { font-size: 1.0em; }
+				}
+			}
+		}
+	
+	}
+  
+}
+
+@media only screen 
+	and (min-width: 800px) 
+	and (max-width: 1152px) {
+
+	body {
+		@include section-widths(50);
+
+		header section.banner {
+			div { font-size: 4em; margin-top: 0.5em; }
+			p { font-size: 0.75em; }
+		}
+
+		main {
+
+			figure {
+			
+				figcaption {
+					margin: 4em auto;
+					width: 40em;
+
+					h1 { font-size: 1.5em; }
+					p { font-size: 1.0em; }
+				}
+				
+			}
+		
+			@include photo-sizes(720);
+			
+			aside.tags {
+				width: 34em;
+				ul li { font-size: 0.875em; }
+
+			}
+			
+			aside.licenseinfo {
+				width: 36em;
+				
+				div.licensebadge {
+					padding-bottom: 4em;
+					margin-right: 1em;
+				}
+				
+				div p { font-size: 0.875em; }
+
+			}
+			
+			section.recentphotos {
+				width: 50em;
+			
+				ul li:nth-child(n+5) { display: none; }
+			}
+			
+			ul.tagmap {
+				margin: 2em auto;
+				width: 30em;
+				
+				li { font-size: 1.0em; }
+			}
+			
+			ul.thumbs {
+				width: 50em;
+				margin: 3em auto;
+			}
+
+			@supports (display: grid) {
+				ul.thumbs {
+        			display: grid;
+        			grid-template-columns: repeat(4, 1fr);
+        			grid-gap: 1em;
+				}
+			}
+						
+			section.text {
+				margin: 2em auto;
+				width: 32em;
+			
+				h2 {
+					font-size: 1.25em;
+					margin-top: 3em;
+				}
+			
+				p {
+					line-height: 1.5em;
+					font-size: 1em;
+				}
+			}
+
+		}
+		
+		footer nav {
+			section.sitelinks {
+				margin: 3em auto 1.5em auto;
+				width: 16em; 
+				ul li { font-size: 1.0em; width: 4em; }
+			}
+		
+			section.monthlinks {
+				width: 50em;
+				ul {
+					width: 18em;
+					li { font-size: 1.0em; }
+				}
+			}
+		}
+	
+	}
+  
+}
+
+@media only screen 
+	and (min-width: 1152px) {
+
+	body {
+		@include section-widths(72);
+
+		header section.banner {
+			div { font-size: 5em; margin-top: 0.5em; }
+			p { font-size: 1.0em; }
+		}
+
+		main {
+
+			figure {
+			
+				figcaption {
+					margin: 5em auto;
+					width: 50em;
+
+					h1 { font-size: 1.75em; }
+					p { font-size: 1.125em; }
+				}
+				
+			}
+		
+			@include photo-sizes(960);
+			
+			aside.tags {
+				width: 40em;
+				
+				ul li { font-size: 1em; }
+
+			}
+			
+			aside.licenseinfo {
+				width: 40em;
+				
+				div.licensebadge {
+					padding-bottom: 4em;
+					margin-right: 1em;
+				}
+				
+				div p { font-size: 1em; }
+			}
+			
+			section.recentphotos {
+				width: 64em;
+			
+				ul li:nth-child(n+5) { display: none; }
+			}
+
+			ul.tagmap {
+				margin: 3em auto;
+				width: 30em;
+				
+				li { font-size: 1.0em; }
+			}
+			
+			ul.thumbs {
+				width: 64em;
+				margin: 4em auto;
+			}
+			
+			@supports (display: grid) {
+				ul.thumbs {
+        			display: grid;
+        			grid-template-columns: repeat(4, 1fr);
+        			grid-gap: 2em;
+				}
+			}
+			
+			section.text {
+				margin: 3em auto;
+				width: 32em;
+			
+				h2 {
+					font-size: 1.25em;
+					margin-top: 3em;
+				}
+			
+				p {
+					line-height: 1.5em;
+					font-size: 1em;
+				}
+			}
+			
+		}
+		
+		footer nav {
+			section.sitelinks {
+				margin: 3em auto 1.5em auto;
+				width: 16em; 
+				ul li { font-size: 1.0em; width: 4em; }
+			}
+		
+			section.monthlinks {
+				width: 72em;
+				ul {
+					width: 18em;
+					li { font-size: 1.0em; }
+				}
+			}
+		}
+	
+	}
+  
+}
