@@ -5,19 +5,22 @@
 # Configuration
 
 config[:sitename] = "Name of This Site"									# Title of site
-config[:siteshortname] = "1999"											# Short name of site
+config[:siteshortname] = "2018"											# Short name of site
 config[:siteslug] = "Subtitle of This Site"								# Short description of site
 config[:siteurl] = "http://example.com"									# URL of site
+config[:sitedescription] = "A photo-a-day project by A.N. Author."		# Description of site (132 chars max).
 config[:siteauthorname] = "A.N. Author" 								# Name of site author
 config[:siteauthorurl] = "http://example.com/author/"					# URL of site author's homepage
 config[:siteauthorlocale] = "City, State, Country" 						# Physical location of author
 config[:sitetwitter] = "yourtwitterhandle"								# Twitter handle of author
-config[:siteyear] = "1999"												# Year of site
+config[:siteyear] = "2018"												# Year of site
+config[:siteposter] = "2018-01-01"										# Date of image to use as poster
+config[:sitelanguage] = "en"											# ISO language code for site
 config[:googleanalyticscode] = "UA-0000000-0"							# Google Analytics code
 config[:extendedlicenseurl] = "/info/licensing/"						# URL of extended license page
 config[:copyrightname] = "A.N. Author"									# Name of copyright holder
 config[:copyrighturl] = "/info/copyright/"								# URL of copyright page
-config[:copyrightyear] = "1999-2018"									# Years of copyright validity
+config[:copyrightyear] = "2018"									# Years of copyright validity
 config[:timezone] = "-05:00"											# Timezone of site author
 config[:homepagestyle] = "thumbs"										# Set to 'thumbs' or 'photo'
 config[:downloadprefix] = "myphotosite"									# Prefix for downloaded files
