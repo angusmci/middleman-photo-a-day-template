@@ -2,6 +2,26 @@
 # Page options, layouts, aliases and proxies
 ###
 
+# Configuration
+
+config[:sitename] = "Name of This Site"									# Title of site
+config[:siteshortname] = "1999"											# Short name of site
+config[:siteslug] = "Subtitle of This Site"								# Short description of site
+config[:siteurl] = "http://example.com"									# URL of site
+config[:siteauthorname] = "A.N. Author" 								# Name of site author
+config[:siteauthorurl] = "http://example.com/author/"					# URL of site author's homepage
+config[:siteauthorlocale] = "City, State, Country" 						# Physical location of author
+config[:sitetwitter] = "yourtwitterhandle"								# Twitter handle of author
+config[:siteyear] = "1999"												# Year of site
+config[:googleanalyticscode] = "UA-0000000-0"							# Google Analytics code
+config[:extendedlicenseurl] = "http://example.com/info/licensing/"		# URL of extended license page
+config[:copyrightname] = "A.N. Author"									# Name of copyright holder
+config[:copyrighturl] = "http://example.com/info/copyright/"			# URL of copyright page
+config[:copyrightyear] = "1999-2018"									# Years of copyright validity
+config[:timezone] = "-05:00"											# Timezone of site author
+config[:homepagestyle] = "thumbs"										# Set to 'thumbs' or 'photo'
+config[:downloadprefix] = "myphotosite"									# Prefix for downloaded files
+
 # Per-page layout changes:
 #
 # With no layout
@@ -20,6 +40,9 @@ page '/*.txt', layout: false
 # Helpers
 ###
 
+require "lib/page_helpers"
+helpers Page_Helpers
+
 activate :directory_indexes
 
 activate :blog do |blog|
@@ -35,11 +58,11 @@ activate :blog do |blog|
   # blog.summary_length = 250
   # blog.year_link = "{year}.html"
   blog.month_link = "/{month}/index.html"
-  # blog.day_link = "{year}/{month}/{day}.html"
+  # blog.day_link = "/{month}/{day}/index.html"
   # blog.default_extension = ".markdown"
 
-  blog.tag_template = "tag.html"
-  blog.calendar_template = "calendar.html"
+  blog.tag_template = "layouts_blog/tag.html"
+  blog.month_template = "layouts_blog/calendar.html"
 
   # Enable pagination
   # blog.paginate = true
@@ -76,4 +99,13 @@ configure :build do
   
   # Minify HTML
   activate :minify_html  
+  
+  ignore "layouts_blog/*"
+  
+  activate :external_pipeline,
+     name: :gulp,
+     command: "gulp compress-icons",
+     source: "tmp",
+     latency: 1
+  
 end
