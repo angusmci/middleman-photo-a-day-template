@@ -104,20 +104,50 @@ module Page_Helpers
         		return <<~HEREDOC
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@#{config[:sitetwitter]}" />
-        <meta name="twitter:url" property="og:url" content="#{config[:siteurl]}/" />
+        <meta name="twitter:url" property="og:url" content="#{config[:siteurl]}#{current_article.date.strftime('%m')}/#{current_article.date.strftime('%d')}/" />
         <meta name="twitter:title" property="og:title" content="#{current_article.data.title}" />
         <meta name="twitter:description" property="og:description" content="#{current_article.data.caption}" />
-        <meta name="twitter:image" property="og:image" content="#{config[:siteurl]}/photos/#{current_article.date.strftime('%Y-%m-%d')}-1920.jpg" />
+        <meta name="twitter:image" property="og:image" content="#{config[:siteurl]}photos/#{current_article.date.strftime('%Y-%m-%d')}-1920.jpg" />
     	HEREDOC
 			when "home"
-				puts('Implement pagemeta for homepage')
-				return ""
+        		return <<~HEREDOC
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@#{config[:sitetwitter]}" />
+        <meta name="twitter:url" property="og:url" content="#{config[:siteurl]}" />
+        <meta name="twitter:title" property="og:title" content="#{config[:sitename]}" />
+        <meta name="twitter:description" property="og:description" content="#{current_page.data.description}" />
+        <meta name="twitter:image" property="og:image" content="#{config[:siteurl]}photos/#{config[:siteposter]}-1920.jpg" />
+    	HEREDOC
 			when "month"
-				puts('Implement pagemeta for month')
-				return ""
+				article = page_articles.reverse[0]
+				month_number = article.date.strftime('%m')
+				month_name = article.date.strftime('%B')
+				photo_datestamp = article.date.strftime('%Y-%m-%d')
+        		return <<~HEREDOC
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@#{config[:sitetwitter]}" />
+        <meta name="twitter:url" property="og:url" content="#{config[:siteurl]}#{month_number}/" />
+        <meta name="twitter:title" property="og:title" content="#{month_name} | #{config[:sitename]}" />
+        <meta name="twitter:description" property="og:description" content="Photographs taken during #{month_name} #{config[:siteyear]}." />
+        <meta name="twitter:image" property="og:image" content="#{config[:siteurl]}photos/#{photo_datestamp}-1920.jpg" />
+    	HEREDOC
 			when "tag"
-				puts('Implement pagemeta for tag')
-				return ""
+				if page_articles.empty?
+					return ""
+				else
+					tagname = current_page.metadata[:locals]["tagname"]
+					tagpath = tag_path(tagname)
+					article = page_articles.reverse[0]
+					photo_datestamp = article.date.strftime('%Y-%m-%d')
+        			return <<~HEREDOC
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@#{config[:sitetwitter]}" />
+        <meta name="twitter:url" property="og:url" content="#{config[:siteurl]}#{tagpath[1..-1]}" />
+        <meta name="twitter:title" property="og:title" content="#{tagname} | #{config[:sitename]}" />
+        <meta name="twitter:description" property="og:description" content="An index of photographs tagged '#{tagname}'." />
+        <meta name="twitter:image" property="og:image" content="#{config[:siteurl]}photos/#{photo_datestamp}-1920.jpg" />
+    	HEREDOC
+    			end
 		end
 		return ""
 	end
