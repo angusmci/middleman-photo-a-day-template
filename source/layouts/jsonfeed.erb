@@ -1,0 +1,28 @@
+<% itemcount = 20 %>
+{
+    "version": "https://jsonfeed.org/version/1",
+    "user_comment": "This feed allows you to read the posts from this site in any feed reader that supports the JSON Feed format. To add this feed to your reader, copy the following URL - <%= config[:siteurl] %>feed.json - and add it your reader.",
+    "title": "<%= config[:sitename] %>",
+    "home_page_url": "<%= config[:siteurl] %>/",
+    "feed_url": "<%= config[:siteurl] %>feed.json",
+    "description": "<%= config[:siteslug] %>",
+    "author": {
+    	"name": "<%= config[:siteauthorname] %>",
+    	"url": "<%= config[:siteauthorurl] %>"
+    },
+    "items": [ 
+    <% blog.articles[0..itemcount].each_with_index do |article, index| %>
+    	{
+          "id": "<%= config[:siteurl] %><%= article.url %>",
+          "title": "<%= article.title %>",
+          "content_text": "<%= article.data.caption %>",
+          "url": "<%= config[:siteurl] %><%= article.url %>",
+          "image": "<%= config[:siteurl] %>/photos/<%= article.date.strftime('%Y-%m-%d')  %>-288.jpg",
+          "date_published": "<%= article.date.strftime('%Y-%m-%dT12:00:00') + config[:timezone] %>",
+          "tags": [ <%= article.tags.map { |tag| '"' + tag + '"' }.join(", ") %> ] 
+        }
+        <%= index < itemcount ? ", " : "" %> 
+
+    <% end %>
+    ]
+}
