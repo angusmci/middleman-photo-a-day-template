@@ -11,9 +11,9 @@
     		<section id="monthlinks" class="monthlinks">
 				<ul>
 					<% for month in 1..12 
-						date = Date.new(config[:siteyear],month,1)
+						date = Date.new(config[:siteyear].to_i,month,1)
 						monthname = date.strftime("%b")
-						pathname = blog_month_path(config[:siteyear],month)
+						pathname = blog_month_path(config[:siteyear].to_i,month)
 						unless pathname.nil?
 					%>
 						<li><a href="<%= pathname %>"><%= monthname %></a></li>
