@@ -1,0 +1,30 @@
+<aside class="licenseinfo"
+	 xmlns:cc="http://creativecommons.org/ns"
+	 xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<div class="licensebadge">
+		<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
+			<picture>
+				<source type="image/svg+xml" srcset="/inline/badgeCCByNC.svg" />
+				<img src="/inline/badgeCCByNC@1x.png"
+					 srcset="/inline/badgeCCByNC@1x.png 88w,
+					 		 /inline/badgeCCByNC@2x.png 176w"
+					 width="88" height="31"
+				 	 alt="Creative Commons By-NC" />
+			</picture>
+		</a>
+		<a rel="cc:morePermissions" href="<%= extendedlicenseurl %>">
+			<picture>
+				<source type="image/svg+xml" srcset="/inline/badgeCCPlus.svg" />
+				<img src="/inline/badgeCCPlus@1x.png"
+					 srcset="/inline/badgeCCPlus@1x.png 88w,
+					 		 /inline/badgeCCPlus@2x.png 176w"
+					 width="88" height="31"
+				 	 alt="Extended License" />
+			</picture>
+		</a>
+	</div>
+	<div>
+		<p>"<span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/StillImage" property="dc:title" rel="dc:type"><%= photo.title %></span>" by <a rel="me cc:attributionURL" property="cc:attributionName" href="<%= authorurl %>"><%= author %></a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution Noncommercial 4.0 License</a>. For permissions beyond the scope of this license, including licensing for commercial use and licensing of high-resolution versions of these images, see the <a rel="cc:morePermissions"
+		   href="<%= extendedlicenseurl %>">licensing</a> page. Click here to <a href="/photos/<%= photo.date.strftime('%Y-%m-%d')  %>-1920.jpg" download="<%= config[:downloadprefix] %>-<%= photo.date.strftime('%Y-%m-%d') %>.jpg">download image</a>.</p>
+	</div>
+</aside>

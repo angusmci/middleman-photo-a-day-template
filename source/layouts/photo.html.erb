@@ -1,0 +1,14 @@
+---
+pageable: true
+per_page: 10
+---
+<% wrap_layout :layout do %>
+<%= partial "layouts/component_photo", :locals => { :photo => current_article } %>
+<%= partial "layouts/component_photo_navigation", :locals => { :photo => current_article } %>
+<%= partial "layouts/component_photo_tags", :locals => { :photo => current_article } %>
+<%= partial "layouts/component_photo_licensing", 
+			:locals => { :photo => current_article, 
+						 :author => config[:siteauthorname],
+						 :authorurl => config[:siteauthorurl],
+						 :extendedlicenseurl => config[:extendedlicenseurl] } %>
+<% end %>

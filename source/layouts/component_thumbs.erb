@@ -1,0 +1,38 @@
+<ul class="thumbs">
+<% photos.each do |photo| %>
+	<li>
+		<% 
+		   url = ( link == "month" ? photo.date.strftime('/%m/') : photo.date.strftime('/%m/%d/') ) 
+		   title = ( link == "month" ? photo.date.strftime('%B') : photo.title )
+		%>  
+		<a href="<%= url %>">
+<% case photo.data.aspectratio 
+		when 23 %>
+<img srcset="/photos/<%= photo.date.strftime('%Y-%m-%d')  %>-144.jpg 96w,
+			 /photos/<%= photo.date.strftime('%Y-%m-%d')  %>-288.jpg 192w"
+	 sizes="96px"
+	 src="/photos/<%= photo.date.strftime('%Y-%m-%d')  %>-144.jpg"
+	 alt="<%= title %>" title="<%= title %>" class="thumb23" />
+	 <% when 34 %>
+<img srcset="/photos/<%= photo.date.strftime('%Y-%m-%d')  %>-144.jpg 108w,
+			 /photos/<%= photo.date.strftime('%Y-%m-%d')  %>-288.jpg 216w"
+	 sizes="108px"
+	 src="/photos/<%= photo.date.strftime('%Y-%m-%d')  %>-144.jpg"
+	 alt="<%= title %>" title="<%= title %>" class="thumb34" />	 
+	<% when 32, 43 %>
+<img srcset="/photos/<%= photo.date.strftime('%Y-%m-%d')  %>-144.jpg 144w,
+			 /photos/<%= photo.date.strftime('%Y-%m-%d')  %>-288.jpg 288w"
+	 sizes="144px"
+	 src="/photos/<%= photo.date.strftime('%Y-%m-%d')  %>-144.jpg"
+	 alt="<%= title %>" title="<%= title %>"  class="thumb<%= photo.data.aspectratio %>"/>
+<% end %>			
+		</a>
+		<% if label == "month" %>
+			<p><%= photo.date.strftime('%B')  %></p>
+		<% end %>
+		<% if label == "day" %>
+			<p><%= photo.date.strftime('%d')  %></p>
+		<% end %>
+  	</li>
+<% end %>
+</ul>

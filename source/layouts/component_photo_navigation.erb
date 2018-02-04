@@ -1,0 +1,12 @@
+<nav id="photobuttons" class="photobuttons">
+	<ul>
+		<% unless photo.article_next.nil? %>
+			<li id="forward" class="btnForward"><a href="<%= photo.article_next.url %>"
+			   	   title="<%= photo.article_next.title %>"><span>&lt;&lt;</span></a></li>
+		<% end %>
+		<% unless photo.article_previous.nil? %>
+			<li id="back" class="btnBack"><a href="<%= photo.article_previous.url %>"
+			   	   title="<%= photo.article_previous.title %>"><span>&gt;&gt;</span></a></li>
+		<% end %>
+	</ul>
+</nav>

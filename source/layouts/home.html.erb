@@ -1,0 +1,20 @@
+<% wrap_layout :layout do %>
+
+<% if config[:homepagestyle] == "photo" %>
+	<%= partial "layouts/component_photo", :locals => { :photo => blog.articles[0] } %>
+
+	<section id="recentphotos" class="recentphotos" >
+		<%= partial "layouts/component_thumbs", :locals => { :photos => blog.articles[1...7], :label => "none", :link => "day" } %>
+	</section>
+<% else %>
+		<%= partial "layouts/component_thumbs", 
+			:locals => { 
+				:photos => blog.articles.select{ |item| item.date.day == 1 }.sort { |x,y| x.date <=> y.date }, 
+				:label => "month",
+				:link => "month" 
+			} %>
+<% end %>
+
+<% end %>
+
+

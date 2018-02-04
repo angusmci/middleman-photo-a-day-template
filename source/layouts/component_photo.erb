@@ -1,0 +1,58 @@
+<figure class="photo photo<%= photo.data.aspectratio %>"
+		<% unless photo.article_previous.nil? %>
+			data-previous="<%= photo.article_previous.url %>"
+		<% end %>
+		<% unless photo.article_next.nil? %>
+			data-next="<%= photo.article_next.url %>"
+		<% end %>
+	>
+	<% unless photo.article_previous.nil? %>
+		<a href="/<%= photo.article_previous.date.strftime('%m/%d/') %>">
+	<% end %>
+	<% case photo.data.aspectratio 
+		when 23 %>
+<img srcset="/photos/<%= photo.date.strftime('%Y-%m-%d')  %>-288.jpg 192w,
+			 /photos/<%= photo.date.strftime('%Y-%m-%d')  %>-420.jpg 280w,
+			 /photos/<%= photo.date.strftime('%Y-%m-%d')  %>-576.jpg 384w,
+			 /photos/<%= photo.date.strftime('%Y-%m-%d')  %>-720.jpg 480w,
+			 /photos/<%= photo.date.strftime('%Y-%m-%d')  %>-960.jpg 640w,
+			 /photos/<%= photo.date.strftime('%Y-%m-%d')  %>-1920.jpg 1280w"
+	 sizes="(max-width: 75em) 60vw, 
+			640px"
+	 src="/photos/<%= photo.date.strftime('%Y-%m-%d')  %>-720.jpg"
+	 alt="" />
+	 <% when 34 %>
+<img srcset="/photos/<%= photo.date.strftime('%Y-%m-%d')  %>-288.jpg 216w,
+			 /photos/<%= photo.date.strftime('%Y-%m-%d')  %>-420.jpg 315w,
+			 /photos/<%= photo.date.strftime('%Y-%m-%d')  %>-576.jpg 432w,
+			 /photos/<%= photo.date.strftime('%Y-%m-%d')  %>-720.jpg 540w,
+			 /photos/<%= photo.date.strftime('%Y-%m-%d')  %>-960.jpg 720w,
+			 /photos/<%= photo.date.strftime('%Y-%m-%d')  %>-1920.jpg 1440w"
+	 sizes="(max-width: 50em) 68vw,
+	        (max-width: 75em) 60vw, 
+			720px"
+	 src="/photos/<%= photo.date.strftime('%Y-%m-%d')  %>-720.jpg"
+	 alt="" />	 
+	<% when 32, 43 %>
+<img srcset="/photos/<%= photo.date.strftime('%Y-%m-%d')  %>-288.jpg 288w,
+			 /photos/<%= photo.date.strftime('%Y-%m-%d')  %>-420.jpg 420w,
+			 /photos/<%= photo.date.strftime('%Y-%m-%d')  %>-576.jpg 576w,
+			 /photos/<%= photo.date.strftime('%Y-%m-%d')  %>-720.jpg 720w,
+			 /photos/<%= photo.date.strftime('%Y-%m-%d')  %>-960.jpg 960w,
+			 /photos/<%= photo.date.strftime('%Y-%m-%d')  %>-1920.jpg 1920w"
+	 sizes="(max-width: 50em) 90vw,
+			960px"
+	 src="/photos/<%= photo.date.strftime('%Y-%m-%d')  %>-720.jpg"
+	 alt="" />
+	<% end %>			
+	<% unless photo.article_previous.nil? %>
+		</a>
+	<% end %>
+	<nav id="overlay" class="overlay"></nav>
+	
+	<figcaption>
+		<h1><%= photo.title %></h1>
+		<p class="caption"><%= photo.data.caption %></p>
+		<p class="location"><%= photo.data.location %></p>
+	</figcaption>
+</figure>
